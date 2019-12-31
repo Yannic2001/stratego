@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d1fe362c-c20e-48ad-91e1-d00146b7765a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/stratego/stratego/enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/stratego/stratego/enemy.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/stratego/enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/stratego/enemy.java" afterDir="false" />
@@ -102,7 +101,7 @@
       <workItem from="1577704832982" duration="13377000" />
       <workItem from="1577729301534" duration="3480000" />
       <workItem from="1577789430920" duration="712000" />
-      <workItem from="1577791520610" duration="3872000" />
+      <workItem from="1577791520610" duration="5380000" />
     </task>
     <task id="LOCAL-00001" summary="veld en demo gemaakt">
       <created>1576159142154</created>

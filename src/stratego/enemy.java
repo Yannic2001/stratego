@@ -31,6 +31,7 @@ public class enemy {
         int[][] vijand = new int[10][10];
         boolean vlagvijand = true;
         boolean vlagspeler = true;
+        int randX, randY;
 
         //enemy speelveld invullen
         for (int teller = 0; teller < 12; teller++) {
@@ -202,6 +203,13 @@ public class enemy {
                     }
                     System.out.println();
                 }
+
+//vijand laten verplaatsen
+                do{
+                    randX = random.nextInt(10);
+                    randY = random.nextInt(10);
+                }while((vijand[randX][randY]!= 11 && vijand[randX][randY]!=0 && vijand[randX][randY]!= 12 && vijand[randX][randY]!= 99) && (vijand[randX+1][randY]!=0 ||vijand[randX-1][randY]!=0 || vijand[randX][randY+1]!=0 || vijand[randX][randY-1]!=0));
+                System.out.println(randX +randY );
 
             }
         } while (vlagspeler && vlagvijand);
