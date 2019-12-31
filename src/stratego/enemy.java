@@ -31,7 +31,7 @@ public class enemy {
         int[][] vijand = new int[10][10];
         boolean vlagvijand = true;
         boolean vlagspeler = true;
-        int randX, randY;
+        int randX, randY, naarRandX, naarRandY;
 
         //enemy speelveld invullen
         for (int teller = 0; teller < 12; teller++) {
@@ -151,9 +151,9 @@ public class enemy {
                 if (spelveld[naarx][naary] == 0) {
                     if (spelveld[x][y] == 12) {
                         System.out.println("Bommen kan je niet verplaatsen");
-                    }else if(spelveld[x][y] == 11){
-                        System.out.println("Vlaggen kan je niet verplaatsen");}
-                    else if (vijand[naarx][naary] == 0) {
+                    } else if (spelveld[x][y] == 11) {
+                        System.out.println("Vlaggen kan je niet verplaatsen");
+                    } else if (vijand[naarx][naary] == 0) {
                         spelveld[naarx][naary] = spelveld[x][y];
                         spelveld[x][y] = 0;
                     } else if (vijand[naarx][naary] == 99) {
@@ -163,13 +163,12 @@ public class enemy {
                         System.out.println("U heeft het spel gewonnen!");
                         vijand[naarx][naary] = 0;
                         spelveld[naarx][naary] = spelveld[x][y];
-                    }else if(spelveld[x][y]==3 && vijand[naarx][naary]==12) {
+                    } else if (spelveld[x][y] == 3 && vijand[naarx][naary] == 12) {
                         System.out.println("De bom is ontmanteld");
-                        vijand[naarx][naary]=0;
-                        spelveld[naarx][naary]=spelveld[x][y];
-                        spelveld[x][y]=0;
-                    }
-                    else if (spelveld[x][y] < vijand[naarx][naary]) {
+                        vijand[naarx][naary] = 0;
+                        spelveld[naarx][naary] = spelveld[x][y];
+                        spelveld[x][y] = 0;
+                    } else if (spelveld[x][y] < vijand[naarx][naary]) {
                         System.out.printf("Helaas u heeft de battle verloren!\n");
                         spelveld[x][y] = 0;
                     } else if (spelveld[x][y] > vijand[naarx][naary]) {
@@ -178,6 +177,37 @@ public class enemy {
                         spelveld[x][y] = 0;
                         vijand[naarx][naary] = 0;
                     }
+                }
+
+
+
+//vijand laten verplaatsen
+                do {
+                    randX = random.nextInt(10);
+                    randY = random.nextInt(10);
+                    naarRandX = randX + 1;
+                    naarRandY = randY;
+                } while (vijand[randX][randY] == 0 || vijand[naarRandX][randY] != 0 || vijand[randX][randY]==99 || vijand[randX][randY]==11|| vijand[randX][randY]==12);
+                vijand[naarRandX][naarRandY]=vijand[randX][randY];
+                vijand[randX][randY]=0;
+
+                if (spelveld[naarRandX][naarRandY] == 11) {
+                    System.out.println("U heeft het spel VERLOREN!");
+                    vlagspeler = false;
+                    spelveld[naarRandX][naarRandY] = 0;
+                    vijand[naarRandX][naarRandY] = vijand[randX][randY];
+                } else if (vijand[randX][randY] == 3 && spelveld[naarRandX][naarRandY] == 12) {
+                    spelveld[naarRandX][naarRandY] = 0;
+                    vijand[naarRandX][naarRandY] = vijand[randX][randY];
+                    vijand[randX][randY] = 0;
+                } else if (vijand[randX][randY] < spelveld[naarRandX][naarRandY]) {
+                    System.out.printf("U heeft de battle gewonnen!\n");
+                    vijand[randX][randY] = 0;
+                } else if (vijand[randX][randY] > spelveld[naarRandX][naarRandY]) {
+                    System.out.printf("Helaas u heeft de battle verloren!\n");
+                    vijand[naarRandX][naarRandY] = vijand[randX][randY];
+                    vijand[randX][randY] = 0;
+                    spelveld[naarRandX][naarRandY] = 0;
                 }
 
                 //volledig speelveld tonen
@@ -203,17 +233,8 @@ public class enemy {
                     }
                     System.out.println();
                 }
-
-//vijand laten verplaatsen
-                do{
-                    randX = random.nextInt(10);
-                    randY = random.nextInt(10);
-                }while((vijand[randX][randY]!= 11 && vijand[randX][randY]!=0 && vijand[randX][randY]!= 12 && vijand[randX][randY]!= 99) && (vijand[randX+1][randY]!=0 ||vijand[randX-1][randY]!=0 || vijand[randX][randY+1]!=0 || vijand[randX][randY-1]!=0));
-                System.out.println(randX +randY );
-
             }
         } while (vlagspeler && vlagvijand);
-        System.out.println("Het spel is beindigd");
-    }
+        System.out.println("Het spel is beindigd");}}
 
-}
+
