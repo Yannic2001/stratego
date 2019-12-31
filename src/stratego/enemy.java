@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class enemy {
     public static void main(String[] args) {
+        //zonder github
 
         Pion[] pionnen = {
                 new Pion(1, "Spion", false, 1),
@@ -30,15 +31,15 @@ public class enemy {
         int[][] vijand = new int[10][10];
 
         //enemy speelveld invullen
-        for (int teller = 0; teller < 12; teller++) {
-            for (int p = 0; p < pionnen[teller].getMaxKeer(); p++) {
-                do {
-                    x = random.nextInt(4);
-                    y = random.nextInt(10);
-                } while (vijand[x][y] != 0);
-                vijand[x][y] = pionnen[teller].getWaarde();
+            for (int teller = 0; teller < 12; teller++) {
+                for (int p = 0; p < pionnen[teller].getMaxKeer(); p++) {
+                    do{
+                    x = random.nextInt(4) ;
+                    y = random.nextInt(10) ;
+                    }while(vijand[x][y]!=0);
+                    vijand[x][y] = pionnen[teller].getWaarde();
+                }
             }
-        }
 
 
         //veld opvullen en tonen
@@ -73,87 +74,97 @@ public class enemy {
         //tijdelijk spelers veld opvullen
         for (int teller = 0; teller < 12; teller++) {
             for (int p = 0; p < pionnen[teller].getMaxKeer(); p++) {
-                do {
-                    x = random.nextInt(4) + 6;
-                    y = random.nextInt(10);
+                do{
+                    x = random.nextInt(4)+6 ;
+                    y = random.nextInt(10) ;
 
 
-                } while (spelveld[x][y] != 0);
+                }while(spelveld[x][y]!=0);
                 spelveld[x][y] = pionnen[teller].getWaarde();
             }
         }
 
 
-        //volledig speelveld tonen
+     //volledig speelveld tonen
         for (int r = 0; r < 10; r++) {
             for (int k = 0; k < 10; k++) {
-                if (spelveld[r][k] == 0) {
-                    System.out.printf("%5d", vijand[r][k]);
-                } else if (vijand[r][k] == 0) {
-                    System.out.printf("%5d", spelveld[r][k]);
+                if (spelveld[r][k]==11){
+                System.out.printf("%5c", 'V');}
+//                else if (spelveld[r][k]==0 || spelveld[r][k]==99){
+//                    System.out.printf("%5d", vijand[r][k]);}
+                else if(spelveld[r][k]==12){
+                    System.out.printf("%5c",'B');}
+                else if(spelveld[r][k]==0 && vijand[r][k]==0){
+                    System.out.printf("%5c", ' ');}
+                else if (vijand[r][k]==0){
+                    System.out.printf("%5d", spelveld[r][k]);}
+                else if (vijand[r][k]>0 && vijand[r][k]<99){
+                    System.out.printf("%5c", 'x');}
+                else if(spelveld[r][k]==99){
+                    System.out.printf("%5c", '*');
                 }
+
             }
             System.out.println();
         }
 
-        //enemy score optellen
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 10; j++) {
-                vijandscore += vijand[i][j];
-            }
-        }
-        System.out.println("de vijandelijke score is: " + vijandscore);
+     //enemy score optellen
+     for (int i = 0; i < 4; i++) {
+         for (int j = 0; j < 10; j++) {
+             vijandscore += vijand[i][j];
+         }
+     }
+     System.out.println("de vijandelijke score is: " + vijandscore);
 
 
-        //spelers score optellen
-        for (int i = 6; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                spelerscore += vijand[i][j];
-            }
-        }
-        System.out.println("de spelers score is: " + spelerscore);
+
+     //spelers score optellen
+     for (int i = 6; i < 10; i++) {
+         for (int j = 0; j < 10; j++) {
+             spelerscore += spelveld[i][j];
+         }
+     }
+     System.out.println("de spelers score is: " + spelerscore);
 
 
-        //de pionen verplaatsen
-        System.out.printf("welke pion wil je verplaatsen?\n");
-        System.out.printf("Welke x coordinaat?\n");
-        x = keyboard.nextInt() - 1;
-        System.out.printf("Welke y coordinaat?\n");
-        y = keyboard.nextInt() - 1;
-        System.out.printf("Naar welke positie wil je deze verplaatsen?\n");
-        System.out.printf("Welke x coordinaat?\n");
-        naarx = keyboard.nextInt() - 1;
-        System.out.printf("Welke y coordinaat?\n");
-        naary = keyboard.nextInt() - 1;
+
+     //de pionen verplaatsen
+         System.out.printf("welke pion wil je verplaatsen?\n");
+         System.out.printf("Welke x coordinaat?\n");
+         x = keyboard.nextInt() - 1;
+         System.out.printf("Welke y coordinaat?\n");
+         y = keyboard.nextInt() - 1;
+         System.out.printf("Naar welke positie wil je deze verplaatsen?\n");
+         System.out.printf("Welke x coordinaat?\n");
+         naarx = keyboard.nextInt() - 1;
+         System.out.printf("Welke y coordinaat?\n");
+         naary = keyboard.nextInt() - 1;
 
 
-        if (vijand[naarx][naary] == 0) {
-            spelveld[naarx][naary] = spelveld[x][y];
-            spelveld[x][y] = 0;
-        } else if (vijand[naarx][naary] == 99) {
-            System.out.printf("Deze postitie is foutief, gelieve een andere postie te kiezen.\n");
-        } else if (spelveld[x][y] < vijand[naarx][naary]) {
-            System.out.printf("Je bent dood!\n");
-            spelveld[x][y] = 0;
-        } else if (spelveld[x][y] > vijand[naarx][naary]) {
-            System.out.printf("je bent gewonnen!\n");
-            spelveld[naarx][naary] = spelveld[x][y];
-            spelveld[x][y] = 0;
-            vijand[naarx][naary] = 0;
-        }
 
-        //volledig speelveld tonen
+     if (vijand[naarx][naary] == 0) {
+         spelveld[naarx][naary] = spelveld[x][y];
+         spelveld[x][y] = 0;
+     } else if (vijand[naarx][naary] == 99) {
+         System.out.printf("Deze postitie is foutief, gelieve een andere postie te kiezen.\n");
+     } else if (spelveld[x][y] < vijand[naarx][naary]) {
+         System.out.printf("Je bent dood!\n");
+         spelveld[x][y] = 0;
+     } else if (spelveld[x][y] > vijand[naarx][naary]) {
+         System.out.printf("je bent gewonnen!\n");
+         spelveld[naarx][naary] = spelveld[x][y];
+         spelveld[x][y] = 0;
+         vijand[naarx][naary] =0;
+     }
+
+     //volledig speelveld tonen
         for (int r = 0; r < 10; r++) {
             for (int k = 0; k < 10; k++) {
-                if (spelveld[r][k] == 0) {
-                    System.out.printf("%5d", vijand[r][k]);
-                } else if (vijand[r][k] == 0) {
-                    System.out.printf("%5d", spelveld[r][k]);
-                }
+                if (spelveld[r][k]==0 || spelveld[r][k]==99){
+                    System.out.printf("%5d", vijand[r][k]);}
+                else if (vijand[r][k]==0 || spelveld[r][k]==99){
+                    System.out.printf("%5d", spelveld[r][k]);}
             }
             System.out.println();
         }
-    }
-
-
-}
+}}

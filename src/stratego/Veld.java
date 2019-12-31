@@ -1,6 +1,8 @@
 package stratego;
 
-public class veld {
-    private int grootte;
+
+import java.lang.reflect.Array;
+
+public class Veld {
 
 }

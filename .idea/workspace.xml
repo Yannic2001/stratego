@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d1fe362c-c20e-48ad-91e1-d00146b7765a" name="Default Changelist" comment="" />
+    <list default="true" id="d1fe362c-c20e-48ad-91e1-d00146b7765a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stratego/Pion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/stratego/Pion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stratego/StrategoDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/stratego/StrategoDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stratego/veld.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/stratego/Veld.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +32,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../KDG 19-20/SourceCode/stratego" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -94,8 +100,8 @@
       <workItem from="1576484535899" duration="81000" />
       <workItem from="1576764991047" duration="5570000" />
       <workItem from="1577616823245" duration="4099000" />
-      <workItem from="1577704832982" duration="13377000" />
-      <workItem from="1577729301534" duration="3480000" />
+      <workItem from="1577704832982" duration="15725000" />
+      <workItem from="1577785725544" duration="2257000" />
     </task>
     <task id="LOCAL-00001" summary="veld en demo gemaakt">
       <created>1576159142154</created>
